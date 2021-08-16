@@ -16,3 +16,33 @@ impl Solution {
         bp + 1
     }
 }
+
+#[cfg(test)]
+mod test {
+    use crate::no27::Solution;
+
+    #[test]
+    fn test_no_21_solution_1() {
+        let mut nums = Vec::new();
+        nums.push(1);
+        nums.push(2);
+        nums.push(3);
+        nums.push(4);
+        nums.push(2);
+        nums.push(6);
+        assert_eq!(4, Solution::remove_element(&mut nums, 2));
+    }
+
+    #[test]
+    fn test_no_21_solution_2() {
+        let mut nums = Vec::new();
+        nums.push(2);
+        assert_eq!(0, Solution::remove_element(&mut nums, 2));
+    }
+
+    #[test]
+    fn test_no_21_solution_3() {
+        let mut nums = Vec::new();
+        assert_eq!(0, Solution::remove_element(&mut nums, 2));
+    }
+}

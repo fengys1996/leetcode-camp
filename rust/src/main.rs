@@ -6,6 +6,7 @@ mod no26;
 mod no27;
 mod no349;
 mod no35;
+mod no350;
 mod no74;
 
 fn main() {

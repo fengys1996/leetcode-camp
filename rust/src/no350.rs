@@ -13,15 +13,11 @@ impl Solution {
         nums1
             .into_iter()
             .filter(|&item| {
-                let res = map2.contains_key(&item);
-                if res {
-                    let val = *map2.get(&item).unwrap();
-                    if val > 1 {
-                        map2.insert(item, val - 1);
-                    } else {
-                        map2.remove(&item);
-                    }
-                }
+                let mut res = false;
+                map2.entry(item).and_modify(|e| {
+                    *e -= 1;
+                    res = *e >= 0;
+                });
                 res
             })
             .collect()

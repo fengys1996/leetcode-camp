@@ -19,17 +19,23 @@ impl Solution {
         let mut right: i32 = nums.len() as i32 - 1;
         while left <= right {
             let mid = left + ((right - left) >> 1);
-            match nums[mid as usize].cmp(&target) {
-                Ordering::Equal => return mid as i32,
-                Ordering::Greater => {
-                    if nums[left as usize] <= target {
+            let left_val = nums[left as usize];
+            let right_val = nums[right as usize];
+            let mid_val = nums[mid as usize];
+            if mid_val == target {
+                return mid;
+            }
+            match left_val.cmp(&mid_val) {
+                Ordering::Less => {
+                    if left_val <= target && target < mid_val {
                         right = mid - 1;
                     } else {
                         left = mid + 1;
                     }
                 }
-                Ordering::Less => {
-                    if nums[right as usize] >= target {
+                Ordering::Equal => left = mid + 1,
+                Ordering::Greater => {
+                    if mid_val < target && target <= right_val {
                         left = mid + 1;
                     } else {
                         right = mid - 1;
@@ -73,5 +79,13 @@ mod test {
         let nums = vec![1];
         let target = 2;
         assert_eq!(-1, Solution::search_great(nums, target));
+
+        let nums = vec![4, 5, 6, 7, 8, 1, 2, 3];
+        let target = 8;
+        assert_eq!(4, Solution::search_great(nums, target));
+
+        let nums = vec![3, 1];
+        let target = 1;
+        assert_eq!(1, Solution::search_great(nums, target));
     }
 }

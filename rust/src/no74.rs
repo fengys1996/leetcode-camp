@@ -38,14 +38,8 @@ mod tests {
     #[test]
     fn test_search_matrix_1() {
         let mut vec = Vec::new();
-        let mut vec1 = Vec::new();
-        let mut vec2 = Vec::new();
-        vec1.push(1);
-        vec1.push(2);
-        vec1.push(3);
-        vec2.push(4);
-        vec2.push(5);
-        vec2.push(6);
+        let vec1 = vec![1, 2, 3];
+        let vec2 = vec![4, 5, 6];
         vec.push(vec1);
         vec.push(vec2);
         assert_eq!(false, Solution::search_matrix(vec.clone(), 7));
@@ -55,8 +49,7 @@ mod tests {
     #[test]
     fn test_search_matrix_2() {
         let mut vec = Vec::new();
-        let mut vec1 = Vec::new();
-        vec1.push(1);
+        let vec1 = vec![1];
         vec.push(vec1);
         assert_eq!(false, Solution::search_matrix(vec.clone(), 0));
         assert_eq!(true, Solution::search_matrix(vec, 1));

@@ -33,21 +33,16 @@ mod tests {
 
     #[test]
     fn test_search_insert() {
-        let mut nums = Vec::new();
-        nums.push(1);
-        nums.push(2);
-        nums.push(3);
-        nums.push(5);
+        let nums = vec![1, 2, 3, 5];
         assert_eq!(1, Solution::search_insert(nums.clone(), 2));
         assert_eq!(3, Solution::search_insert(nums.clone(), 4));
 
-        let mut nums = Vec::new();
-        nums.push(1);
+        let nums = vec![1];
         assert_eq!(0, Solution::search_insert(nums.clone(), 0));
         assert_eq!(0, Solution::search_insert(nums.clone(), 1));
         assert_eq!(1, Solution::search_insert(nums.clone(), 2));
 
-        let nums = Vec::new();
+        let nums = vec![];
         assert_eq!(0, Solution::search_insert(nums.clone(), 0));
         assert_eq!(0, Solution::search_insert(nums.clone(), 1));
     }

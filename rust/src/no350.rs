@@ -30,17 +30,9 @@ mod tests {
 
     #[test]
     fn test_intersection() {
-        let mut nums1 = Vec::new();
-        nums1.push(1);
-        nums1.push(2);
-        nums1.push(2);
-        nums1.push(5);
-        let mut nums2 = Vec::new();
-        nums2.push(2);
-        nums2.push(2);
-        let mut vec_expect = Vec::new();
-        vec_expect.push(2);
-        vec_expect.push(2);
+        let nums1 = vec![1, 2, 2, 5];
+        let nums2 = vec![2, 2];
+        let vec_expect = vec![2, 2];
         assert_eq!(vec_expect, Solution::intersection(nums1, nums2));
     }
 }

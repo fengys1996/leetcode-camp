@@ -21,9 +21,14 @@ impl Solution {
     }
 }
 
-#[test]
-fn test_no_1_solution() {
-    let nums = vec![2, 7, 11, 15];
-    let target = 9;
-    assert_eq!(Solution::two_sum(nums, target), vec![0, 1])
+#[cfg(test)]
+mod tests {
+    use crate::no1::Solution;
+
+    #[test]
+    fn test_two_sum() {
+        let nums = vec![2, 7, 11, 15];
+        let target = 9;
+        assert_eq!(Solution::two_sum(nums, target), vec![0, 1])
+    }
 }

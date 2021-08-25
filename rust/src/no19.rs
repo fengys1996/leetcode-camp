@@ -56,34 +56,39 @@ impl Solution {
     }
 }
 
-#[test]
-fn test_no_19_solution() {
-    let mut node1_in_first = Box::new(ListNode::new(1));
-    let mut node2_in_first = Box::new(ListNode::new(3));
-    let node3_in_first = Box::new(ListNode::new(5));
-    node2_in_first.next = Some(node3_in_first);
-    node1_in_first.next = Some(node2_in_first);
+#[cfg(test)]
+mod tests {
+    use crate::no19::{ListNode, Solution};
 
-    let head = Solution::remove_nth_from_end(Some(node1_in_first), 3);
-    let first_node = head.as_ref().unwrap();
-    assert_eq!(3, first_node.val);
-    let second_node = first_node.next.as_ref().unwrap();
-    assert_eq!(5, second_node.val);
-    assert_eq!(None, second_node.next);
-}
+    #[test]
+    fn test_no_19_solution() {
+        let mut node1_in_first = Box::new(ListNode::new(1));
+        let mut node2_in_first = Box::new(ListNode::new(3));
+        let node3_in_first = Box::new(ListNode::new(5));
+        node2_in_first.next = Some(node3_in_first);
+        node1_in_first.next = Some(node2_in_first);
 
-#[test]
-fn test_no_19_solution_unsafe_impl() {
-    let mut node1_in_first = Box::new(ListNode::new(1));
-    let mut node2_in_first = Box::new(ListNode::new(3));
-    let node3_in_first = Box::new(ListNode::new(5));
-    node2_in_first.next = Some(node3_in_first);
-    node1_in_first.next = Some(node2_in_first);
+        let head = Solution::remove_nth_from_end(Some(node1_in_first), 3);
+        let first_node = head.as_ref().unwrap();
+        assert_eq!(3, first_node.val);
+        let second_node = first_node.next.as_ref().unwrap();
+        assert_eq!(5, second_node.val);
+        assert_eq!(None, second_node.next);
+    }
 
-    let head = Solution::remove_nth_from_end_unsafe(Some(node1_in_first), 3);
-    let first_node = head.as_ref().unwrap();
-    assert_eq!(3, first_node.val);
-    let second_node = first_node.next.as_ref().unwrap();
-    assert_eq!(5, second_node.val);
-    assert_eq!(None, second_node.next);
+    #[test]
+    fn test_no_19_solution_unsafe_impl() {
+        let mut node1_in_first = Box::new(ListNode::new(1));
+        let mut node2_in_first = Box::new(ListNode::new(3));
+        let node3_in_first = Box::new(ListNode::new(5));
+        node2_in_first.next = Some(node3_in_first);
+        node1_in_first.next = Some(node2_in_first);
+
+        let head = Solution::remove_nth_from_end_unsafe(Some(node1_in_first), 3);
+        let first_node = head.as_ref().unwrap();
+        assert_eq!(3, first_node.val);
+        let second_node = first_node.next.as_ref().unwrap();
+        assert_eq!(5, second_node.val);
+        assert_eq!(None, second_node.next);
+    }
 }

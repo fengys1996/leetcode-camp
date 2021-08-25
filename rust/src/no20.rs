@@ -40,8 +40,13 @@ impl Solution {
     }
 }
 
-#[test]
-fn test_no_20_solution() {
-    assert_eq!(Solution::is_valid("()[]{}".to_string()), true);
-    assert_eq!(Solution::is_valid("(}".to_string()), false);
+#[cfg(test)]
+mod tests {
+    use crate::no20::Solution;
+
+    #[test]
+    fn test_no_20_solution() {
+        assert_eq!(Solution::is_valid("()[]{}".to_string()), true);
+        assert_eq!(Solution::is_valid("(}".to_string()), false);
+    }
 }

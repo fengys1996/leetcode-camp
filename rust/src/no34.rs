@@ -11,10 +11,8 @@ impl Solution {
             if item == target {
                 if index == 0 {
                     res_vec[0] = i as i32;
-                    res_vec[1] = i as i32;
-                } else {
-                    res_vec[1] = i as i32;
                 }
+                res_vec[1] = i as i32;
                 index += 1;
             }
         });

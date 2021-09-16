@@ -35,7 +35,7 @@ impl Solution {
 
     unsafe fn dfs(tree_node: Option<Rc<RefCell<TreeNode>>>, lvl: i32) {
         if let Some(node) = tree_node {
-            let mut r = node.borrow_mut();
+            let r = node.borrow_mut();
             if r.left.is_none() && r.right.is_none() {
                 match lvl.cmp(&MAX_LVL) {
                     Ordering::Less => return,
@@ -46,8 +46,8 @@ impl Solution {
                     }
                 }
             }
-            Self::dfs(r.left.take(), lvl + 1);
-            Self::dfs(r.right.take(), lvl + 1);
+            Self::dfs(r.left.clone(), lvl + 1);
+            Self::dfs(r.right.clone(), lvl + 1);
         }
     }
 
@@ -56,6 +56,9 @@ impl Solution {
         let mut max_lvl = 0;
         let mut sum = 0;
         let mut queue = VecDeque::new();
+        if root.is_none() {
+            return sum;
+        }
         queue.push_back((root.unwrap(), 0));
         while !queue.is_empty() {
             let node = queue.pop_front().unwrap().clone();

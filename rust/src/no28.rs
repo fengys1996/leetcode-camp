@@ -53,7 +53,7 @@ mod tests {
         let haystack = "aaaa".to_owned();
         let needle = "bba".to_owned();
         assert_eq!(-1, Solution::str_str(haystack, needle));
- 
+
         let haystack = "".to_owned();
         let needle = "bba".to_owned();
         assert_eq!(-1, Solution::str_str(haystack, needle));

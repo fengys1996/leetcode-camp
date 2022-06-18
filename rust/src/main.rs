@@ -17,6 +17,7 @@ mod no349;
 mod no35;
 mod no350;
 mod no74;
+mod no75;
 
 fn main() {
     println!("Hello leetcode!");
